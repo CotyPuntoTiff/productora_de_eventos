@@ -1,0 +1,41 @@
+<h1>Groups#show</h1>
+
+<table>
+    <thead>
+        <th>Nombre</th>
+        <th>Cant. conciertos</th>
+        <th>Fecha ultimo concierto</th>
+        <th>Nombre ult. concierto</th>
+    </thead>
+    <tbody>
+        <td><%= @group.name %></td>
+        <td><%= @last_con.count %></td>
+        <td><%= @last_con[0].event_date.strftime('%Y-%B-%A') %></td>
+        <td><%= @last_con[0].name %></td>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <th>Audiencia maxima</th>
+        <th>Nombre del concierto</th>
+
+    </thead>
+    <tbody>
+        <td><%= @max_audie[0].audience  %></td>
+        <td><%= @max_audie[0].name  %></td>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <th>Mayor tiempo de duracion</th>
+        <th>Nombre del concierto</th>
+
+    </thead>
+    <tbody>
+        <td><%= @max_t[0].duration.strftime('%H:%M') %> </td>
+        <td><%= @max_t[0].name %></td>
+      
+    </tbody>
+</table>
+<%= link_to 'atras', root_path %>

@@ -1,0 +1,40 @@
+<h1>Informacion de los Grupos de nuestra Productora</h1>
+
+
+<table> 
+    <thead>
+    <th> Accion</th>
+    <th> Nombre grupo</th>
+    <th> Cant. integrantes</th>
+    <th> Fecha debut</th>
+    <th> Team</th>
+    <th> Cant. conciertos</th>
+    <th> Info concierto</th>
+    </thead>    
+
+    <tbody>
+    <% @groups.each do |group| %>
+        <tr>
+        <td>
+            <%= link_to 'Ver', group %>
+            <%= link_to 'Borrar', group, method: :delete, data:{confirm:'Estas seguro de querer borrarlo?',} %>
+        </td>
+        <td><%= group.name %></td>
+        <td><%= group.members %></td>
+        <td><%= group.debut %></td>
+        <td><%= group.team %></td>
+        <td><%= group.total_concerts %></td>
+        <td>
+            <% group.concerts.each do |concert| %>
+            <li><%=" #{concert.name}, espectadores : #{concert.audience}"%></li>
+           
+            <% end %>
+        </td>
+        </tr>
+
+        <% end %>
+    </tbody>
+
+</table>
+
+<%= link_to 'crear concierto', new_concert_path %>
